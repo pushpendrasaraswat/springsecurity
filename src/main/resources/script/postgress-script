@@ -1,0 +1,38 @@
+create database springsecuritydb;
+
+CREATE ROLE springsecurityuser WITH LOGIN PASSWORD 'spring-security';
+
+GRANT ALL ON users TO springsecurityuser;
+
+ CREATE TABLE users (
+id INT NOT NULL,
+username VARCHAR(45) NOT NULL,
+password VARCHAR(45) NOT NULL,
+enabled INT NOT NULL,
+PRIMARY KEY (id));
+
+
+CREATE TABLE authorities (
+  id int NOT NULL,
+  username varchar(45) NOT NULL,
+  authority varchar(45) NOT NULL,
+  PRIMARY KEY (id));
+
+
+INSERT INTO users VALUES (1,'happy', '12345', '1');
+INSERT  INTO authorities VALUES (2, 'happy', 'write');
+
+
+
+
+CREATE TABLE customer (
+  id int NOT NULL ,
+  email varchar(45) NOT NULL,
+  pwd varchar(200) NOT NULL,
+  role varchar(45) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+
+INSERT INTO customer
+VALUES (1,'johndoe@example.com', '54321', 'admin');
